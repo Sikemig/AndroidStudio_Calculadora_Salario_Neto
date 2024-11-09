@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">AndroidStudio_Calculadora_Salario_Neto</string>
+
+    <string name="title">CALCULADORA SALARIO NETO</string>
+
+    <string name="solicitud_datos">Por favor, inserte los siguientes datos:</string>
+
+    <string name="salario_bruto_anual">Salario bruto anual:</string>
+    <string name="salario_bruto_anual2">salario</string>
+
+    <string name="numero_de_pagas">Número de pagas:</string>
+    <string name="numero_de_pagas2">nº Pagas</string>
+
+    <string name="edad">Edad:</string>
+    <string name="edad2">años</string>
+
+    <string name="grupo_profesional">Grupo profesional:</string>
+    <string name="grupo_profesional2">grupo</string>
+
+    <string name="grado_discapacidad">Grado discapacidad:</string>
+    <string name="grado_discapacidad2">%</string>
+
+    <string name="estado_civil">Estado civil:</string>
+    <string name="estado_civil2">casado/soltero</string>
+
+    <string name="num_hijos">Número de hijos:</string>
+    <string name="num_hijos2">hijos</string>
+
+    <string name="enviar_datos">ENVIAR DATOS</string>
+
+    <string name="resultados">RESULTADOS DEL CÁLCULO</string>
+
+    <string name="irpf">IRPF APLICADO</string>
+    <string name="deducciones">DEDUCCIONES</string>
+    <string name="salario_bruto_mensual">Salario bruto mensual:</string>
+    <string name="salario_neto_mensual">Salario neto mensual:</string>
+</resources>
