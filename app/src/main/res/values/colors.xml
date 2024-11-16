@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#03A9F4</color>
-    <color name="cajas">#CD504E4E</color>
-    <color name="textoCaja">#18B13C</color>
+    <color name="cajas">#353871</color>
+    <color name="textoCaja">#359671</color>
+    <color name="boton">#03A9F4</color>
 </resources>
