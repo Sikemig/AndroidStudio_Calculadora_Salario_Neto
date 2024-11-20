@@ -3,13 +3,49 @@ package com.example.androidstudio_calculadora_salario_neto
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+
 class MainActivity : AppCompatActivity() {
+    // Creamos variables privadas para recoger los elementos visuales, con inicializacion tardía (lazy)
+    private lateinit var  salarioBrutoRespuesta: EditText
+
+    private lateinit var  pagasMenos: ImageButton
+    private lateinit var  pagasMas: ImageButton
+    private lateinit var  numPagasRespuesta: TextView
+
+    private lateinit var  edadMenos: ImageButton
+    private lateinit var  edadMas: ImageButton
+    private lateinit var  edadRespuesta: TextView
+
+    private lateinit var  grupoRespuesta: EditText
+
+    private lateinit var  discapacidadMenos: ImageButton
+    private lateinit var  discapacidadMas: ImageButton
+    private lateinit var  discapacidadRespuesta: TextView
+
+    private lateinit var  estadoRespuesta: EditText
+
+    private lateinit var  hijosMenos: ImageButton
+    private lateinit var  hijosMas: ImageButton
+    private lateinit var  hijosRespuesta: TextView
+
+    private lateinit var  enviarDatos: Button
+
+    // Atributos que voy a utilizar con botones
+    private var currentEdad : Int = 18
+    private var currentPagas : Int = 12
+    private var currentDiscapacidad : Int = 0
+    private var currentHijos : Int = 0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,58 +56,150 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Añadimos funcionalidad al botón para recoger los campos que se han ido rellenando
-        findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.enviarDatos).setOnClickListener{
-            val salario = findViewById<EditText>(R.id.salarioBrutoRespuesta)
-            val pagas = findViewById<EditText>(R.id.numPagasRespuesta)
-            val edad = findViewById<EditText>(R.id.edadRespuesta)
-            val grupo = findViewById<EditText>(R.id.grupoRespuesta)
-            val discapacidad = findViewById<EditText>(R.id.discapacidadRespuesta)
-            val estado = findViewById<EditText>(R.id.estadoRespuesta)
-            val hijos = findViewById<EditText>(R.id.hijosRespuesta)
+        // Para iniciar componentes visuales
+        initComponents()
+
+        // Para iniciar los listener de los eventos
+        initListeners()
+
+        // Para iniciar configuraciones de los componentes visuales
+        initUI()
+    }
 
 
-            // Comprobamos que no quede ninguno sin rellenar
-            if(salario.text.isEmpty() || pagas.text.isEmpty() || edad.text.isEmpty()
-                || grupo.text.isEmpty() || discapacidad.text.isEmpty() || estado.text.isEmpty()
-                || hijos.text.isEmpty()){
+    private fun initListeners(){
+        this.pagasMenos.setOnClickListener {
+            this.currentPagas-=1
+            setPagas()
+        }
+        this.pagasMas.setOnClickListener {
+            this.currentPagas+=1
+            setPagas()
+        }
 
-                salario.setHintTextColor(Color.RED)
-                salario.setHint("Inserte salario")
+        this.edadMenos.setOnClickListener {
+            this.currentEdad-=1
+            setEdad()
+        }
+        this.edadMas.setOnClickListener {
+            this.currentEdad+=1
+            setEdad()
+        }
 
-                pagas.setHintTextColor(Color.RED)
-                pagas.setHint("Inserte nº de pagas")
+        this.discapacidadMenos.setOnClickListener {
+            this.currentDiscapacidad-=5
+            setDiscapacidad()
+        }
+        this.discapacidadMas.setOnClickListener {
+            this.currentDiscapacidad+=5
+            setDiscapacidad()
+        }
 
-                edad.setHintTextColor(Color.RED)
-                edad.setHint("Inserte edad")
+        this.hijosMenos.setOnClickListener {
+            this.currentHijos-=1
+            setHijos()
+        }
+        this.hijosMas.setOnClickListener {
+            this.currentHijos+=1
+            setHijos()
+        }
 
-                grupo.setHintTextColor(Color.RED)
-                grupo.setHint("Inserte grupo")
+        this.enviarDatos.setOnClickListener{
+            // Navegacion
+            navigateToResult()
+        }
+    }
 
-                discapacidad.setHintTextColor(Color.RED)
-                discapacidad.setHint("Inserte porcentaje")
 
-                estado.setHintTextColor(Color.RED)
-                estado.setHint("Inserte estado civil")
 
-                hijos.setHintTextColor(Color.RED)
-                hijos.setHint("Inserte nº de hijos")
-            } else {
-                // Una vez rellenados, se prepara el cambio de vista
-                val intent = Intent(this, Calculadora::class.java)
+    private fun initUI() {
+        this.setPagas()
+        this.setEdad()
+        this.setDiscapacidad()
+        this.setHijos()
+    }
 
-                // Preparamos los datos para que vayan a la siguiente activity con el tipo de dato necesario
-                intent.putExtra("salario", salario.text.toString().toDouble())
-                intent.putExtra("pagas", pagas.text.toString().toInt())
-                intent.putExtra("edad", edad.text.toString().toInt())
-                intent.putExtra("grupo", grupo.text.toString())
-                intent.putExtra("discapacidad", discapacidad.text.toString().toInt())
-                intent.putExtra("estado", estado.text.toString())
-                intent.putExtra("hijos", hijos.text.toString().toInt())
+    private fun setPagas() {
+        this.numPagasRespuesta.text = this.currentPagas.toString()
+    }
 
-                // Saltamos a la otra activity
-                startActivity(intent)
-            }
+    private fun setEdad() {
+        this.edadRespuesta.text = this.currentEdad.toString()
+    }
+
+    private fun setDiscapacidad() {
+        this.discapacidadRespuesta.text = this.currentDiscapacidad.toString()
+    }
+
+    private fun setHijos() {
+        this.hijosRespuesta.text = this.currentHijos.toString()
+    }
+
+
+    private fun initComponents(){
+        this.salarioBrutoRespuesta = findViewById(R.id.salarioBrutoRespuesta)
+
+        this.pagasMenos = findViewById(R.id.pagasMenos)
+        this.pagasMas = findViewById(R.id.pagasMas)
+        this.numPagasRespuesta= findViewById(R.id.numPagasRespuesta)
+
+        this.edadMenos=findViewById(R.id.edadMenos)
+        this.edadMas=findViewById(R.id.edadMas)
+        this.edadRespuesta=findViewById(R.id.edadRespuesta)
+
+        this.grupoRespuesta=findViewById(R.id.grupoRespuesta)
+
+        this.discapacidadMenos=findViewById(R.id.discapacidadMenos)
+        this.discapacidadMas=findViewById(R.id.discapacidadMas)
+        this.discapacidadRespuesta=findViewById(R.id.discapacidadRespuesta)
+
+        this.estadoRespuesta=findViewById(R.id.estadoRespuesta)
+
+        this.hijosMenos=findViewById(R.id.hijosMenos)
+        this.hijosMas=findViewById(R.id.hijosMas)
+        this.hijosRespuesta=findViewById(R.id.hijosRespuesta)
+
+        this.enviarDatos=findViewById(R.id.enviarDatos)
+    }
+
+
+    private fun navigateToResult() {
+        if (salarioBrutoRespuesta.text.isEmpty() || numPagasRespuesta.text.isEmpty() || edadRespuesta.text.isEmpty()
+            || grupoRespuesta.text.isEmpty() || discapacidadRespuesta.text.isEmpty() || estadoRespuesta.text.isEmpty()
+            || hijosRespuesta.text.isEmpty()
+        ) {
+
+            salarioBrutoRespuesta.setHintTextColor(Color.RED)
+            salarioBrutoRespuesta.setHint("Inserte salario")
+
+            numPagasRespuesta.setHintTextColor(Color.RED)
+            numPagasRespuesta.setHint("Inserte nº de pagas")
+
+            edadRespuesta.setHintTextColor(Color.RED)
+            edadRespuesta.setHint("Inserte edad")
+
+            grupoRespuesta.setHintTextColor(Color.RED)
+            grupoRespuesta.setHint("Inserte grupo")
+
+            discapacidadRespuesta.setHintTextColor(Color.RED)
+            discapacidadRespuesta.setHint("Inserte porcentaje")
+
+            estadoRespuesta.setHintTextColor(Color.RED)
+            estadoRespuesta.setHint("Inserte estado civil")
+
+            hijosRespuesta.setHintTextColor(Color.RED)
+            hijosRespuesta.setHint("Inserte nº de hijos")
+
+        } else {
+
+            val intent = Intent(this, Calculadora::class.java)
+            // enviamos a la otra activity solo lo que se va a utilizar
+            intent.putExtra("salario", salarioBrutoRespuesta.text.toString().toDouble())
+            intent.putExtra("pagas", currentPagas)
+            intent.putExtra("discapacidad", currentDiscapacidad)
+            intent.putExtra("hijos", currentHijos)
+
+            this.startActivity(intent)
         }
     }
 }

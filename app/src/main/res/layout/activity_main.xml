@@ -65,8 +65,7 @@
                 android:layout_width="340dp"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="10dp">
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="170dp"
@@ -103,18 +102,31 @@
                     android:text="@string/numero_de_pagas"
                     android:textColor="@color/white"
                     android:textSize="8pt"
-                    android:textAlignment="center"/>
-
-                <EditText
-                    android:id="@+id/numPagasRespuesta"
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:textSize="6pt"
-                    android:inputType="number"
-                    android:hint="@string/numero_de_pagas2"
-                    android:textColorHint="@color/white"
                     android:textAlignment="center"
-                    android:textColor="@color/white"/>
+                    />
+
+
+                <ImageButton
+                    android:id="@+id/pagasMenos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_remove_18"/>
+
+                <TextView
+                    android:id="@+id/numPagasRespuesta"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    tools:text="12"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="6pt"/>
+
+                <ImageButton
+                    android:id="@+id/pagasMas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_add_18"/>
+
             </LinearLayout>
 
 
@@ -132,16 +144,27 @@
                     android:textSize="8pt"
                     android:textAlignment="center"/>
 
-                <EditText
+                <ImageButton
+                    android:id="@+id/edadMenos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_remove_18"/>
+
+                <TextView
                     android:id="@+id/edadRespuesta"
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:textSize="6pt"
-                    android:inputType="number"
-                    android:hint="@string/edad2"
-                    android:textColorHint="@color/white"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    tools:text="20"
                     android:textAlignment="center"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="6pt"/>
+
+                <ImageButton
+                    android:id="@+id/edadMas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_add_18"/>
+
             </LinearLayout>
 
 
@@ -196,16 +219,26 @@
                     android:textSize="7pt"
                     android:textAlignment="center"/>
 
-                <EditText
+                <ImageButton
+                    android:id="@+id/discapacidadMenos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_remove_18"/>
+
+                <TextView
                     android:id="@+id/discapacidadRespuesta"
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:inputType="number"
-                    android:textSize="6pt"
-                    android:hint="@string/grado_discapacidad2"
-                    android:textColorHint="@color/white"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    tools:text="0"
                     android:textAlignment="center"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="6pt"/>
+
+                <ImageButton
+                    android:id="@+id/discapacidadMas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_add_18"/>
             </LinearLayout>
 
 
@@ -248,16 +281,26 @@
                     android:textSize="8pt"
                     android:textAlignment="center"/>
 
-                <EditText
+                <ImageButton
+                    android:id="@+id/hijosMenos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_remove_18"/>
+
+                <TextView
                     android:id="@+id/hijosRespuesta"
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:inputType="number"
-                    android:hint="@string/num_hijos2"
-                    android:textSize="6pt"
-                    android:textColorHint="@color/white"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    tools:text="0"
                     android:textAlignment="center"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="6pt"/>
+
+                <ImageButton
+                    android:id="@+id/hijosMas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_add_18"/>
             </LinearLayout>
 
             <LinearLayout
