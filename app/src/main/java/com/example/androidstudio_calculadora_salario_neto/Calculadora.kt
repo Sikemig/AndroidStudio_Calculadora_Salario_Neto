@@ -22,10 +22,7 @@ class Calculadora : AppCompatActivity() {
         // Recogemos los valores de la otra activity
         val salario: Double = intent.extras?.getDouble("salario")?:0.0
         val pagas: Int = intent.extras?.getInt("pagas")?:0
-        val edad: Int = intent.extras?.getInt("edad")?:0
-        val grupo: String = intent.extras?.getString("grupo").orEmpty()
         val discapacidad: Int = intent.extras?.getInt("discapacidad")?:0
-        val estado: String = intent.extras?.getString("estado").orEmpty()
         val hijos: Int = intent.extras?.getInt("hijos")?:0
 
         // Creamos los elementos que contendrán los datos al usuario segun cada textview
