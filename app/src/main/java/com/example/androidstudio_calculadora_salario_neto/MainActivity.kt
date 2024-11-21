@@ -163,32 +163,17 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun navigateToResult() {
-        if (salarioBrutoRespuesta.text.isEmpty() || numPagasRespuesta.text.isEmpty() || edadRespuesta.text.isEmpty()
-            || grupoRespuesta.text.isEmpty() || discapacidadRespuesta.text.isEmpty() || estadoRespuesta.text.isEmpty()
-            || hijosRespuesta.text.isEmpty()
-        ) {
+    private fun navigateToResult() {        // condicional para que todos los campos se utilicen
+        if (salarioBrutoRespuesta.text.isEmpty() || grupoRespuesta.text.isEmpty()  || estadoRespuesta.text.isEmpty()) {
 
             salarioBrutoRespuesta.setHintTextColor(Color.RED)
             salarioBrutoRespuesta.setHint("Inserte salario")
 
-            numPagasRespuesta.setHintTextColor(Color.RED)
-            numPagasRespuesta.setHint("Inserte nº de pagas")
-
-            edadRespuesta.setHintTextColor(Color.RED)
-            edadRespuesta.setHint("Inserte edad")
-
             grupoRespuesta.setHintTextColor(Color.RED)
             grupoRespuesta.setHint("Inserte grupo")
 
-            discapacidadRespuesta.setHintTextColor(Color.RED)
-            discapacidadRespuesta.setHint("Inserte porcentaje")
-
             estadoRespuesta.setHintTextColor(Color.RED)
             estadoRespuesta.setHint("Inserte estado civil")
-
-            hijosRespuesta.setHintTextColor(Color.RED)
-            hijosRespuesta.setHint("Inserte nº de hijos")
 
         } else {
 
